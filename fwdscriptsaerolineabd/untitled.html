@@ -1,0 +1,80 @@
+ <?php
+
+
+$host="127.0.0.1";
+    $port="5432";
+    $user="postgres";
+    $pass="romelia1997";
+    $dbname="aerolinea";
+
+    $cadena = "host='localhost' port='5432' user='postgres' 
+pass='romelia1997' dbname='aerolinea' ";
+         $con = pg_connect($cadena) or die("Error en la Conexión: ".pg_last_error());
+
+$query = "select * from avion order by matricula";
+      $result = pg_query($query) or die('Query failed: ' . pg_last_error($link));
+
+    
+        
+
+        echo "<select name='matricula' class=\"form control\">\n";
+        //$CodigoD=0;
+
+        while ($row = pg_fetch_array($result, PGSQL_ASSOC)) {
+
+        
+        $marca=$line["marca"];
+        $modelo=$line["modelo"];
+        $millasrecorridas=$line["millasrecorridas"];
+        $capacidadcombustible=$line["capacidadcombustible"];
+        $capacidadpeso=$line["capacidadpeso"];
+        echo "<option value=\"$matricula\"> $marca, $modelo, $millasrecorridas, $capacidadcombustible, $capacidadpeso </option>";
+        }
+
+        echo "</select>\n";
+
+      pg_close($link);
+
+    ?>
+
+$host="127.0.0.1";
+   $port="5432";
+      $user="postgres";
+   $pass="romelia1997";
+   $dbname="aerolinea";
+
+
+
+
+
+echo "\t<tr>\n";
+echo "\t\t<th><b>matricula</b></th>\n";
+echo "\t\t<th>modelo</th>\n";
+echo "\t\t<th>millas recorridas</th>\n";
+echo "\t\t<th>capacidad de combustible</th>\n";
+cho "\t\t<th>capacidad de peso</th>\n";
+echo '<th></th>';
+
+
+        echo "<select name='matricula' class=\"form control\">\n";
+echo "<table class=\"table\">\n";
+echo "\t<tr>\n";
+echo "\t\t<th><b>matricula</b></th>\n";
+echo "\t\t<th>modelo</th>\n";
+echo "\t\t<th>millas recorridas</th>\n";
+echo "\t\t<th>capacidad de combustible</th>\n";
+cho "\t\t<th>capacidad de peso</th>\n";
+echo '<th></th>';
+echo "\t</tr>\n";
+
+
+
+
+
+
+echo "\n$marca";
+echo "\n$modelo";
+echo "\n$capacidadcombustible";
+echo "\n$capacidadpeso";
+echo "\n$millasrecorridas";
+echo "\n$matricula";
